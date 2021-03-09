@@ -1,7 +1,7 @@
 {
   "name": "@duallsistemas/duall-ts-utils",
   "description": "Utilities library for TypeScript.",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "license": "MIT",
   "author": "Silvio Clecio <silvioprog@gmail.com> (silvioprog)",
   "bugs": {
@@ -21,11 +21,11 @@
   ],
   "scripts": {
     "start": "tsdx watch",
-    "build": "tsdx build",
+    "dist": "tsdx build",
     "test": "tsdx test --coverage",
     "lint": "tsdx lint",
     "prepare": "tsdx build",
-    "clear": "npx jest --clearCache"
+    "clean": "npx jest --clearCache"
   },
   "publishConfig": {
     "access": "public"
@@ -50,5 +50,7 @@
   "directories": {
     "test": "test"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@brazilian-utils/brazilian-utils": "^1.0.0-rc.12"
+  }
 }

@@ -1,3 +1,5 @@
+import { formatCurrency } from '@brazilian-utils/brazilian-utils';
+
 export enum RequestStatus {
   None = 'none',
   Sending = 'sending',
@@ -43,4 +45,45 @@ export class Status implements IStatus {
     this.error = undefined;
     return this;
   }
+}
+
+export function padZeros(value: number, count: number = 4): string {
+  return value.toString().padStart(count, '0');
+}
+
+export function roundFloat(value: number, digits: number = 2): number {
+  return Number(value.toFixed(digits));
+}
+
+export interface formatDateOptions {
+  fullYear?: boolean;
+}
+
+export function formatDate(date: string | number | Date, options?: formatDateOptions) {
+  return new Date(date).toLocaleString('pt-br', {
+    year: options && options.fullYear ? 'numeric' : '2-digit',
+    month: '2-digit',
+    day: '2-digit',
+  });
+}
+
+export function formatDateTime(date: string | number | Date, options?: formatDateOptions) {
+  return new Date(date).toLocaleString('pt-br', {
+    year: options && options.fullYear ? 'numeric' : '2-digit',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+  });
+}
+
+export function formatPrice(value?: number, digits: number = 2): string {
+  if (!value) value = 0.0;
+  return formatCurrency(value, { precision: digits });
+}
+
+export function formatFloat(value?: number, digits: number = 1): string {
+  if (!value) value = 0.0;
+  return value.toFixed(digits).replace('.', ',');
 }
