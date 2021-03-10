@@ -1,7 +1,7 @@
 {
   "name": "@duallsistemas/duall-ts-utils",
   "description": "Utilities library for TypeScript.",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "license": "MIT",
   "author": "Silvio Clecio <silvioprog@gmail.com> (silvioprog)",
   "bugs": {
